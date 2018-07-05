@@ -47,6 +47,13 @@ class ZufangSpider(scrapy.Spider):
                         callback=self.house_info,
                         meta={'item':deepcopy(item)}
                     )
+        next_url = response.xpath("//a[@class='aNxt']/@href").extract_first()
+        if next_url is not None:
+            yield scrapy.Request(
+                next_url,
+                callback=self.parse_detail_area,
+            )
+
 
     def house_info(self,response):
         item = response.meta['item']
@@ -60,5 +67,7 @@ class ZufangSpider(scrapy.Spider):
             item['house_floor'] = li.xpath("./../li[5]/span[2]/text()").extract_first()
             item['house_fit'] = li.xpath("./../li[6]/span[2]/text()").extract_first()
             item['house_addr'] = li.xpath("./../li[8]/a/text()").extract()
-        item["house_desc"] = response.xpath("//div[@class='auto-general']/p/text()").extract()
-
+        p_list = response.xpath("//div[@class='auto-general']/p")
+        for p in p_list:
+            item["house_desc"] = p.xpath("./text()").extract_first()
+        print(item)

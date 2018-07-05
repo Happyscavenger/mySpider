@@ -9,20 +9,16 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'mySpider'
-
-SPIDER_MODULES = ['mySpider.spiders']
-NEWSPIDER_MODULE = 'mySpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'mySpider (+http://www.yourdomain.com)'
+# from mySpider import usa
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 
 # Obey robots.txt rules
 # ROBOTSTXT_OBEY = True
-ROBOTSTXT_OBEY = False
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -91,3 +87,21 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# PROXIES = [
+#   {'ip_port': '111.11.228.75:80', 'password': ''},
+#   {'ip_port': '120.198.243.22:80', 'password': ''},
+#   {'ip_port': '111.8.60.9:8123', 'password': ''},
+#   {'ip_port': '101.71.27.120:80', 'password': ''},
+#   {'ip_port': '122.96.59.104:80', 'password': ''},
+#   {'ip_port': '122.224.249.122:8088', 'password':''},
+# ]
+
+BOT_NAME = 'mySpider'
+
+SPIDER_MODULES = ['mySpider.spiders']
+NEWSPIDER_MODULE = 'mySpider.spiders'
+
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+
+ROBOTSTXT_OBEY = False
