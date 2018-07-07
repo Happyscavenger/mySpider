@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import urllib
-
+from mySpider.items import HouseDay
 class FtxSpider(scrapy.Spider):
     name = 'ftx'
     allowed_domains = ['zu.hz.fang.com']
@@ -9,7 +9,7 @@ class FtxSpider(scrapy.Spider):
 
     def parse(self, response):
         a_list = response.xpath("//dd[@style='position: relative;']/a[position()>1]")
-        item = {}
+        item = HouseDay()
         for a in a_list:
             item['area'] = a.xpath("./text()").extract_first()
             item['area_href'] = a.xpath('./@href').extract_first()
@@ -54,4 +54,4 @@ class FtxSpider(scrapy.Spider):
         for li in li_list:
             item['img']=li.xpath("./img/@src").extract_first()
         item['house_desc'] = response.xpath("//ul[@class='fyms_modify']/li/div[2]/text()").extract_first()
-        print(item)
+        yield item

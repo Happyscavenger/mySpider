@@ -42,3 +42,14 @@ class BhItem(scrapy.Item):
     h_detail_fac = scrapy.Field()
     h_detail_type = scrapy.Field()
     content_img = scrapy.Field()
+
+class HouseDay(scrapy.Item):
+    area = scrapy.Field()
+    area_href = scrapy.Field()
+    house_title = scrapy.Field()
+    house_href = scrapy.Field()
+    house_price = scrapy.Field()
+    house_info = scrapy.Field()
+    house_addr = scrapy.Field()
+    img = scrapy.Field()
+    house_desc = scrapy.Field()
